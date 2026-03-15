@@ -1,0 +1,80 @@
+Html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random HTML Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random HTML Test Page</h1>
+    <div id="content"></div>
+
+    <script>
+        // Sample data for random generation
+        const titles = ["Hello World", "Random Title", "Test Heading", "Sample Content", "Demo Page"];
+        const paragraphs = [
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            "Vivamus luctus urna sed urna ultricies ac tempor dui sagittis.",
+            "In condimentum facilisis porta.",
+            "Sed nec diam eu diam mattis viverra.",
+            "Nulla fringilla, orci ac euismod semper."
+        ];
+        const images = [
+            "https://picsum.photos/400/200?random=1",
+            "https://picsum.photos/400/200?random=2",
+            "https://picsum.photos/400/200?random=3",
+            "https://picsum.photos/400/200?random=4",
+            "https://picsum.photos/400/200?random=5"
+        ];
+
+        // Function to create a random card
+        function createRandomCard() {
+            const card = document.createElement("div");
+            card.className = "card";
+
+            const title = document.createElement("h2");
+            title.textContent = titles[Math.floor(Math.random() * titles.length)];
+            card.appendChild(title);
+
+            const img = document.createElement("img");
+            img.src = images[Math.floor(Math.random() * images.length)];
+            img.alt = "Random Image";
+            card.appendChild(img);
+
+            const para = document.createElement("p");
+            para.textContent = paragraphs[Math.floor(Math.random() * paragraphs.length)];
+            card.appendChild(para);
+
+            return card;
+        }
+
+        // Generate multiple random cards
+        const contentDiv = document.getElementById("content");
+        for (let i = 0; i < 5; i++) {
+            contentDiv.appendChild(createRandomCard());
+        }
+    </script>
+</body>
+</html>
